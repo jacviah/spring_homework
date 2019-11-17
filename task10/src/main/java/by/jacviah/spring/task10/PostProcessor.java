@@ -30,22 +30,3 @@ public class PostProcessor implements BeanPostProcessor {
         return bean;
     }
 }
-
-/*    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        return bean;
-    }
-
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName)
-            throws BeansException {
-        Class type = bean.getClass();
-        if (type.isAnnotationPresent(Profiling.class)) {
-            ProxyFactory proxyFactory = new ProxyFactory();
-            proxyFactory.addAdvice(new Sniffer());
-            proxyFactory.setTarget(bean);
-            return proxyFactory.getProxy();
-        }
-        return bean;
-    }*/
-
