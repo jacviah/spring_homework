@@ -11,7 +11,12 @@ import java.lang.reflect.Method;
 
 @Component
 public class PostProcessor implements BeanPostProcessor {
+        return bean;
+    }
 
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
@@ -37,11 +42,6 @@ public class PostProcessor implements BeanPostProcessor {
                 return proxyFactory.getProxy();
             }
         }
-        return bean;
-    }
-
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         return bean;
     }
 }
