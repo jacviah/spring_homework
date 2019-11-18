@@ -11,14 +11,14 @@ import java.lang.reflect.Method;
 
 @Component
 public class PostProcessor implements BeanPostProcessor {
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
         Method[] methods = beanClass.getMethods();
         for (Method meth : methods) {
